@@ -1,0 +1,22 @@
+<div class="login">
+    <h1>Schnell-Schnell Login Portal</h1>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" id="user" name="user" placeholder="enter username" formControlName="username" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" id="password" name="password" placeholder="enter password"
+                formControlName="password" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>One-time login token</mat-label>
+            <input matInput type="tel" id="token" name="token" maxlength="4" placeholder="enter token"
+                formControlName="token" />
+        </mat-form-field>
+        <div class="error-message" *ngIf="unauthorized">Invalid credentials</div>
+        <div class="success-message" *ngIf="authorized">Success!</div>
+        <button mat-raised-button class="submit-button">Submit</button>
+    </form>
+</div>
